@@ -1,0 +1,227 @@
+/* SignUp.css */
+
+/* Global font and layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(218, 41%, 15%);
+  background-image: url('/public/assets/imgs/bg.jpeg'); 
+
+   position: relative;
+  padding: 20px;
+}
+
+ .signup-container .radius-shape-1,
+.signup-container .radius-shape-2 {
+  position: absolute;
+  /* background: radial-gradient(#2e12df, #2736b9); */
+  opacity: 0.4; /* Adjust opacity as needed */
+  border-radius: 50%;
+} 
+
+.signup-container .radius-shape-1 {
+  height: 150px; /* Adjust size for smaller screens */
+  width: 150px; /* Adjust size for smaller screens */
+  top: -40px; /* Adjust position for smaller screens */
+  left: -80px; /* Adjust position for smaller screens */
+}
+
+.signup-container .radius-shape-2 {
+  width: 200px; /* Adjust size for smaller screens */
+  height: 200px; /* Adjust size for smaller screens */
+  bottom: -40px; /* Adjust position for smaller screens */
+  right: -80px; /* Adjust position for smaller screens */
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.85);
+  backdrop-filter: saturate(200%) blur(25px);
+  padding: 30px; /* Adjust padding for smaller screens */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px; /* Adjust maximum width for different screen sizes */
+  width: 90%; /* Take up more width on smaller screens */
+}
+
+h2 {
+  font-size: 1.8rem; /* Adjust font size for responsiveness */
+  margin-bottom: 25px; /* Adjust margin for smaller screens */
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 15px; /* Adjust margin for smaller screens */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+form label {
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+  color: #555;
+  margin-bottom: 5px;
+}
+
+form input {
+  padding: 10px 12px; /* Adjust padding for smaller screens */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: #44006b;
+  outline: none;
+}
+
+.signup-button {
+  padding: 10px 15px; /* Adjust padding for smaller screens */
+  font-size: 1rem; /* Adjust font size for smaller screens */
+  background-color: #190abf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add margin for spacing */
+}
+
+.signup-button:hover {
+  background-color: #1013c4;
+}
+
+.signup-button:focus {
+  outline: none;
+}
+
+.login-link-text {
+  margin-top: 15px; /* Add margin for spacing */
+  font-size: 0.8rem; /* Adjust font size for smaller screens */
+  color: #555;
+}
+
+.login-link {
+  color: #0c006b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small screens (phones) */
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .bg-glass {
+    padding: 20px;
+    max-width: 95%;
+  }
+
+  .input-group label {
+    font-size: 0.8rem;
+  }
+
+  form input {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .signup-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .login-link-text {
+    font-size: 0.7rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+  h2 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+
+  .bg-glass {
+    padding: 40px;
+    max-width: 500px;
+    width: 80%;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+  }
+
+  form input {
+    padding: 11px 13px;
+    font-size: 0.9rem;
+  }
+
+  .signup-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .login-link-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Large screens (desktops) - Base styles already cater for this, adjust if needed */
+@media (min-width: 993px) {
+  .bg-glass {
+    max-width: 380px; /* Reset to original max-width for larger screens */
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 2rem; /* Reset to original font-size */
+    margin-bottom: 30px; /* Reset to original margin-bottom */
+  }
+
+  .input-group label {
+    font-size: 1rem; /* Reset to original font-size */
+  }
+
+  form input {
+    padding: 12px 15px; /* Reset to original padding */
+    font-size: 1rem; /* Reset to original font-size */
+  }
+
+  .signup-button {
+    font-size: 1.1rem; /* Reset to original font-size */
+    padding: 12px; /* Reset to original padding */
+  }
+
+  .login-link-text {
+    font-size: 0.9rem; /* Reset to original font-size */
+  }
+}

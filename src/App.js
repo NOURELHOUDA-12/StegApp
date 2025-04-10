@@ -1,25 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';  
+import { Routes, Route } from 'react-router-dom';  
+import Template from './Pages/Template22';  
+import Home from './Pages/Home';  
+import About from './Pages/About';  
+import Login from './Pages/Login';
+import SignUp from './Pages/SignUp';
+import Contactez_nous from './Pages/Contact/Contactez'
+import Réclamation from './Pages/Reclamation/Reclamation'
+import ListeRéclamation from './Pages/Reclamation/RéclamationAgent'
+import AgentTemplate from './Pages/Template/AgentTemplate'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+import AccueilAgent2 from './Pages/Agent/Accueil/accueil'
+import Projects from'./Pages/Project/Project'
+ import TemplateHamdi from './Pages/Template/TemplateHamdi'
+ import HomePage from './Components/HomePage/HomePage'
+ import FirstPage from './Components/FirstPage/FirstPage'
+ import AgentPage from './Components/Agent/Agent'
+ import AccueilAgent  from'./Components/Agent/AccueilAdgent'
+ import ListeReclamation from'./Components/Agent/ListReclamation/ListReclamation'
+
+function App() {  
+  return (  
+    <Routes>  
+       <Route path="/" element={<Login />}></Route>
+       <Route path="/Signup" element={<SignUp />}></Route>
+
+
+       <Route path="/AgentPage" element={<AgentPage />}>
+       <Route path="AccueilAgent" element={<AccueilAgent />} /> 
+       <Route path="ListeReclamation" element={<ListeReclamation />} /> 
+       </Route>
+
+
+       <Route path="/HomePage" element={<HomePage />}>
+       <Route path="FirstPage" element={<FirstPage />} /> 
+       <Route path="Réclamation" element={<Réclamation />} />  
+       </Route>
+     
+
+
+
+
+      <Route path="/template" element={<Template />}>  
+        <Route path="home" element={<Home />} />  
+        <Route path="Contactez_nous" element={<Contactez_nous />} />  
+        <Route path="about" element={<About />} /> 
+        <Route path="Projects" element={<Projects />} /> 
+        <Route path="Réclamation" element={<Réclamation />} />  
+        
+      </Route>  
+      <Route path="/TemplateHamdi" element={<TemplateHamdi />}>  
+      </Route>
+
+      <Route path="/AgentTemplate" element={<AgentTemplate />}>  
+      <Route path="AccueilAgent2" element={<AccueilAgent2 />} />  
+      <Route path="ListeRéclamation" element={<ListeRéclamation />} />  
+      </Route> 
+    </Routes>  
+
+
+  );  
+}  
+
+export default App;  
