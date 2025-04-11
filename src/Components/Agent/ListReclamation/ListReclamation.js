@@ -129,6 +129,8 @@ const ListeReclamations = () => {
             <thead style={styles.thead}>
               <tr style={styles.tr}>
                 <th style={styles.th}>Référence</th>
+                <th style={styles.th}>Type de Réclamation</th>
+
                 <th style={styles.th}>Date de Création</th>
                 <th style={styles.th}>Type d'Utilisateur</th>
                 <th style={styles.th}>Action</th>
@@ -138,6 +140,7 @@ const ListeReclamations = () => {
               {reclamations.map((reclamation) => (
                 <tr key={reclamation.id} style={styles.tr}>
                   <td style={styles.td}>{reclamation.reference}</td>
+                  <td style={styles.td}>{reclamation.energyType}</td>
                   <td style={styles.td}>
                     {new Date(reclamation.createdAt?.seconds * 1000).toLocaleString()}
                   </td>

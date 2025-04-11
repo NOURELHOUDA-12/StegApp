@@ -13,7 +13,7 @@ function App() {
             {/* Header */}
             <div style={styles.header}>
                 <div style={styles.logo}>
-                    <img src={'./assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
+                    <img src={'/assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
                 </div>
                 <nav style={styles.nav}>
                     <a href="#" style={styles.navLink} onClick={() => handleCardClick('/HomePage/FirstPage')}>Accueil</a>

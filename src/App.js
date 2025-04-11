@@ -19,12 +19,16 @@ import Projects from'./Pages/Project/Project'
  import AgentPage from './Components/Agent/Agent'
  import AccueilAgent  from'./Components/Agent/AccueilAdgent'
  import ListeReclamation from'./Components/Agent/ListReclamation/ListReclamation'
-
+import  StegHome from './Components/SitePage/SitePage'
+import LoginAdministration from './Components/Agent/Administration/Login'
 function App() {  
   return (  
     <Routes>  
-       <Route path="/" element={<Login />}></Route>
+       <Route path="/" element={<StegHome />}></Route>
+       <Route path="/Login" element={<Login />}></Route>
+       <Route path="/LoginAdministration" element={<LoginAdministration />}></Route>
        <Route path="/Signup" element={<SignUp />}></Route>
+      
 
 
        <Route path="/AgentPage" element={<AgentPage />}>

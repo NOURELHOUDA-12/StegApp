@@ -1,0 +1,144 @@
+/* STEGHomePage.css */
+
+.steg-homepage-container {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Dark text */
+  }
+  
+  .steg-header {
+    background-color: #007bff; /* STEG blue color (adjust as needed) */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .steg-header .logo img {
+    height: 50px; /* Adjust logo size */
+  }
+  
+  .steg-header .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .steg-header .main-nav ul li {
+    margin-left: 20px;
+  }
+  
+  .steg-header .main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .announcements-section,
+  .videos-section {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .announcements-section h2,
+  .videos-section h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .announcements-grid,
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .announcement-card,
+  .video-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .announcement-card:hover,
+  .video-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .announcement-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .announcement-details {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .announcement-details h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .announcement-details p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .read-more-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more-link:hover {
+    background-color: #0056b3;
+  }
+  
+  .video-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .video-card h3,
+  .video-card p {
+    padding: 15px;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .video-card h3 {
+    color: #333;
+  }
+  
+  .video-card p {
+    color: #666;
+  }
+  
+  .steg-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .steg-footer p {
+    margin: 0;
+  }

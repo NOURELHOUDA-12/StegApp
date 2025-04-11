@@ -14,7 +14,7 @@ function AdminApp() {
       <div style={styles.adminHeader}>
         <div style={styles.logo}>
        
-                    <img src={'./assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
+                    <img src={'/assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
                
         </div>
         <h1 style={styles.adminTitle}>Admin Dashboard</h1>

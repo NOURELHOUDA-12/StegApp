@@ -143,7 +143,7 @@ const ReclamationForm = () => {
                 checked={formData.selectedInput === 'police'}
                 onChange={() => handleInputSelection('police')}
                 className="reclamation-radio"
-              /> Par Police
+              /> Par N°dossier
             </label>
           </div>
         </div>
@@ -198,14 +198,13 @@ const ReclamationForm = () => {
                 required
               >
                 <option value="">-- Sélectionnez --</option>
-                <option value="copure">Copure de courant</option>
-                <option value="modification">Modification de puissance</option>
-                <option value="deplacement">Déplacement compteur électricité ou Gaz</option>
-                <option value="verfication">Vérification compteur électricité ou Gaz</option>
-                <option value="discjoncteur">Vérification de disjoncteur électricité ou détendeur de pression Gaz</option>
-                <option value="correction">Correction de l'adresse ou Nom</option>
-                <option value="prestations">Prestations commerciales</option>
-                <option value="degats">Réclamations pour constats dégâts matériels suite à un incident</option>
+                <option value="Manque de courant / Gaz">Manque de courant / Gaz
+                </option>
+                <option value="Verification compteur">Verification compteur</option>
+                <option value="Erreur index">Erreur index</option>
+                <option value="Afficheur éteint">Afficheur éteint</option>
+                <option value="Remplacement compteur">Remplacement compteur</option>
+                <option value="Correction de l'adresse ou Nom">Correction de l'adresse ou Nom</option>
                 <option value="autres">Autres</option>
               </select>
             </div>
