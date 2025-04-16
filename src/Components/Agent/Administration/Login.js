@@ -16,6 +16,7 @@ const Login = () => {
   
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("nour")
 
     if (!email || !password) {
       setError("Veuillez remplir tous les champs");
