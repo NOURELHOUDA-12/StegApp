@@ -60,7 +60,7 @@ const Login = () => {
     
 
     } catch (error) {
-      setError("Email ou mot de passe incorrect");
+      setError("matricule ou mot de passe incorrect");
       console.error("Erreur d'authentification :", error.message);
     }
   };
@@ -87,9 +87,9 @@ const Login = () => {
           <div className="input-group">
             <label htmlFor="email">matricule :</label>
             <input
-              type="email"
+              type="text"
               id="email"
-              placeholder="Entrez votre email"
+              placeholder="Entrez votre matricule"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

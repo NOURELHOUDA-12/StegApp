@@ -1,15 +1,15 @@
 .loginAdmin-container {
-    min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack elements vertically by default */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    background-image: url('/public/assets/imgs/agentIns.jpeg'); /* Path to your background image */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    background-image: url('/public/assets/imgs/agentIns.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative; /* For absolute positioning of shapes */
-    padding: 20px; /* Add some padding around the container for smaller screens */
+    position: relative; 
+    padding: 20px; 
   }
   
