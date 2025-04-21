@@ -198,7 +198,7 @@ const ListeReclamations = () => {
   );
 };
 
-const styles = {
+ const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
     padding: '20px',

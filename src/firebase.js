@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "stegapp-5140a",
   storageBucket: "stegapp-5140a.firebasestorage.app",
   messagingSenderId: "422775793203",
-  appId: "1:422775793203:web:be7066337809c9e3362546"
+  appId: "1:422775793203:web:b748f062767f50ad362546"
 };
 
 // Initialize Firebase

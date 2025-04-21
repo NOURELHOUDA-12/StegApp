@@ -6,21 +6,24 @@ import About from './Pages/About';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Contactez_nous from './Pages/Contact/Contactez'
-import Réclamation from './Pages/Reclamation/Reclamation'
-import ListeRéclamation from './Pages/Reclamation/RéclamationAgent'
+import Réclamation from './Components/Client/Reclamation/Reclamation'
+import ListeRéclamation from './Components/Client/Reclamation/RéclamationAgent'
 import AgentTemplate from './Pages/Template/AgentTemplate'
 
 
 import AccueilAgent2 from './Pages/Agent/Accueil/accueil'
 import Projects from'./Pages/Project/Project'
  import TemplateHamdi from './Pages/Template/TemplateHamdi'
- import HomePage from './Components/HomePage/HomePage'
- import FirstPage from './Components/FirstPage/FirstPage'
+ import HomePage from './Components/Client/HomePage/HomePage'
+ import FirstPage from './Components/Client/FirstPage/FirstPage'
  import AgentPage from './Components/Agent/Agent'
  import AccueilAgent  from'./Components/Agent/AccueilAdgent'
  import ListeReclamation from'./Components/Agent/ListReclamation/ListReclamation'
 import  StegHome from './Components/SitePage/SitePage'
 import LoginAdministration from './Components/Agent/Administration/Login'
+import ServiceDepannage from "./Components/Services/ServicesDépanage/ServiceDepanage"
+import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeReclamation'
+ import Messages from './Components/Client/Message/Message'
 function App() {  
   return (  
     <Routes>  
@@ -36,10 +39,16 @@ function App() {
        <Route path="ListeReclamation" element={<ListeReclamation />} /> 
        </Route>
 
+       {/* Service Depannage */}
+       <Route path="/ServiceDepannage" element={<ServiceDepannage />}>
+       <Route path="ReclamationDepanage" element={<ReclamationDepanage />} /> 
+      
+       </Route>
 
        <Route path="/HomePage" element={<HomePage />}>
        <Route path="FirstPage" element={<FirstPage />} /> 
        <Route path="Réclamation" element={<Réclamation />} />  
+       <Route path="Messages" element={<Messages />} />  
        </Route>
      
 

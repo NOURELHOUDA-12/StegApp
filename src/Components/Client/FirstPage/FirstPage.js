@@ -12,6 +12,8 @@ function App() {
          
             <div style={styles.content}>
                 <h2 style={styles.title}>Bienvenue dans votre espace</h2>
+                <button style={styles.button} onClick={() => handleCardClick('/HomePage/Messages')}>Boite de réception</button>
+
                 <button style={styles.button} onClick={() => handleCardClick('/HomePage/Réclamation')}>Réclamation</button>
                 <button style={styles.button}>Autorelevé</button>
                 <button style={styles.button}>Payer la facture</button>

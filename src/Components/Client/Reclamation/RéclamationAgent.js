@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, updateDoc, doc, serverTimestamp } from 'firebase/firestore';
-import { auth, db } from "../../firebase"; 
+import { auth, db } from "../../../firebase"; 
 import './rec.css';
 
 const ReclamationForm = () => {

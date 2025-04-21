@@ -16,7 +16,6 @@ const Login = () => {
   
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("nour")
 
     if (!email || !password) {
       setError("Veuillez remplir tous les champs");
@@ -44,8 +43,9 @@ const Login = () => {
         console.log("Nom:", userData.name); // Adjust based on your Firestore fields
         console.log("Email:", userData.email);
         console.log("Type:", userData.type); 
-        if( userData.type=="Agent"){
-          navigate("/AgentPage/AccueilAgent");
+        
+        if( userData.type=="Service dépannage "){
+          navigate("/ServiceDepannage/ReclamationDepanage");
         }
         else{
           navigate("/HomePage/FirstPage");
@@ -54,8 +54,7 @@ const Login = () => {
       } else {
         console.log("Erreur: Les informations de l'utilisateur n'ont pas été trouvées dans Firestore.");
         setError("Erreur lors de la récupération des informations utilisateur.");
-        // Optionally, you might want to handle this case differently,
-        // e.g., redirect to a profile creation page.
+      
       }
 
     

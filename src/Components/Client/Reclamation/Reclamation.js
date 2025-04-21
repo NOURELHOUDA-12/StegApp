@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { auth,db } from "../../firebase"; 
+import { auth,db } from "../../../firebase"; 
 import './rec.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -198,8 +198,7 @@ const ReclamationForm = () => {
                 required
               >
                 <option value="">-- Sélectionnez --</option>
-                <option value="Manque de courant / Gaz">Manque de courant / Gaz
-                </option>
+                <option value="Manque de courant / Gaz">Manque de courant / Gaz </option>
                 <option value="Verification compteur">Verification compteur</option>
                 <option value="Erreur index">Erreur index</option>
                 <option value="Afficheur éteint">Afficheur éteint</option>
