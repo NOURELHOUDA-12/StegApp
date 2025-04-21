@@ -46,7 +46,9 @@ function App() {
        </Route>
 
        <Route path="/HomePage" element={<HomePage />}>
+      
        <Route path="FirstPage" element={<FirstPage />} /> 
+       <Route path="FirstPageeeeeeeeeeeeeeeeeeeeeeeee" element={<FirstPage />} /> 
        <Route path="Réclamation" element={<Réclamation />} />  
        <Route path="Messages" element={<Messages />} />  
        </Route>
