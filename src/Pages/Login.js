@@ -51,8 +51,7 @@ const Login = () => {
       } else {
         console.log("Erreur: Les informations de l'utilisateur n'ont pas été trouvées dans Firestore.");
         setError("Erreur lors de la récupération des informations utilisateur.");
-        // Optionally, you might want to handle this case differently,
-        // e.g., redirect to a profile creation page.
+        
       }
 
     

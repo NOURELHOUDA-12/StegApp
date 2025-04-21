@@ -29,8 +29,7 @@ const Login = () => {
       console.log(user.email)
       console.log(user.name)
 
-      // At this point, authentication was successful, and the email exists.
-      // 2. Fetch user coordinates from Firestore using the user's UID
+      
       console.log("UID utilisateur :", user.uid);
 
       const userDocRef = doc(db, "users", user.uid);
@@ -40,11 +39,11 @@ const Login = () => {
       if (userDocSnapshot.exists()) {
         const userData = userDocSnapshot.data();
         console.log("Coordonnées de l'utilisateur connecté:");
-        console.log("Nom:", userData.name); // Adjust based on your Firestore fields
+        console.log("Nom:", userData.name); 
         console.log("Email:", userData.email);
         console.log("Type:", userData.type); 
         
-        if( userData.type=="Service dépannage "){
+        if( userData.type=="Service dépannage"){
           navigate("/ServiceDepannage/ReclamationDepanage");
         }
         else{
@@ -111,7 +110,7 @@ const Login = () => {
           </button>
           <p className="signup-text">
             Vous n'avez pas de compte ?{" "}
-            <Link to="/Signup" className="signup-link">
+            <Link to="/SignupAdministration" className="signup-link">
               Créer un compte
             </Link>
           </p>

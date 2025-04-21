@@ -93,15 +93,8 @@ const SignUp = () => {
               required
             >
               <option value="client ordinaire">client ordinaire</option>
-              <option value="Service dépannage ">Service dépannage </option>
-              <option value="Service Etude">Service Etude</option>
-              <option value="Service gaz">Service gaz</option>
-              <option value="Service Clientéle">Service Clientéle</option>
-              <option value="Service Traveaux">Service Traveaux</option>
-              <option value="Service Laboratoire">Service Laboratoire</option>
-              <option value="Service dépannage ">Service dépannage </option>
-
-              {/* <option value="Agent">Agent</option> */}
+              <option value="client Professionnel">client Professionnel</option>
+              
               
              
             </select>

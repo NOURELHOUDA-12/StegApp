@@ -24,6 +24,7 @@ import LoginAdministration from './Components/Agent/Administration/Login'
 import ServiceDepannage from "./Components/Services/ServicesDépanage/ServiceDepanage"
 import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeReclamation'
  import Messages from './Components/Client/Message/Message'
+ import SignupAdministration from './Components/Agent/Administration/SignUpAdministration'
 function App() {  
   return (  
     <Routes>  
@@ -31,6 +32,7 @@ function App() {
        <Route path="/Login" element={<Login />}></Route>
        <Route path="/LoginAdministration" element={<LoginAdministration />}></Route>
        <Route path="/Signup" element={<SignUp />}></Route>
+       <Route path="/SignupAdministration" element={<SignupAdministration />}></Route>
       
 
 
