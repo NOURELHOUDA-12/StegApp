@@ -29,6 +29,7 @@ import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeRe
  import Facture from './Components/Client/Facture/Facture'
  import ServiceGaz from'./Components/Services/ServiceGaz/ServiceGaz'
  import ReclamationGaz from './Components/Services/ServiceGaz/ReclamationsGaz'
+ import RDV from './Components/Client/Rendez_vous/Rendez_vous'
 function App() {  
   return (  
     <Routes>  
@@ -62,6 +63,7 @@ function App() {
        <Route path="Messages" element={<Messages />} />  
        <Route path="AutoReleve" element={<AutoReleve />} /> 
        <Route path="Facture" element={<Facture />} /> 
+       <Route path="RDV" element={<RDV />} /> 
        </Route>
      
 
