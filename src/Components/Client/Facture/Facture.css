@@ -1,0 +1,224 @@
+.steg-interface {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  
+    background-color: #f4f4f4;
+}
+
+.auto-releve {
+    background-color: #fff;
+    padding: 30px;
+    margin:20px;
+    /* margin-top: -70px; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    max-width: 100%;
+}
+
+.reference-label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #333;
+    display: block;
+}
+
+.reference-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.reference-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 1em;
+}
+
+.reference-input button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.reference-input button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.reference-input button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.facture-details {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.facture-details h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.facture-details p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.facture-details button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.facture-details button:hover {
+    background-color: #1e7e34;
+}
+
+
+.facture-details2 button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.payment-interface {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    max-width: 95%;
+    text-align: left;
+}
+
+.payment-interface h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.order-number,
+.session-timer {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.payment-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-row .form-group {
+    flex-grow: 1;
+}
+
+.pay-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+.secure-payment {
+    color: #5cb85c;
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.method-icon {
+    /* Ajoutez ici des styles pour les icônes de paiement (par exemple, en utilisant des polices d'icônes ou des images) */
+    font-size: 1.2em;
+    color: #777;
+}

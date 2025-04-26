@@ -3,7 +3,7 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
@@ -46,31 +46,6 @@ const SignUp = () => {
     }
   };
   
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (password !== confirmPassword) {
-  //     alert("Les mots de passe ne correspondent pas.");
-  //     return;
-  //   }
-
-  //   try {
-  //     // Ajout des données dans Firestore
-  //     const docRef = await addDoc(collection(db, "users"), {
-  //       name: name,
-  //       email: email,
-  //       password: password,
-  //       type: userType, 
-  //     });
-  //     await createUserWithEmailAndPassword(auth, email, password);
-  //     console.log("Document written with ID: ", docRef.id);
-  //     alert("Inscription réussie!");
-  //     navigate("/"); // Redirect to login after successful signup
-  //   } catch (e) {
-  //     console.error("Error adding document: ", e);
-  //     alert("Erreur lors de l'inscription. Veuillez réessayer.");
-  //   }
-  // };
 
   return (
     <section className="signup-container">

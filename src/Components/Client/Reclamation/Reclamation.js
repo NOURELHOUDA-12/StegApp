@@ -112,9 +112,7 @@ const ReclamationForm = () => {
   };
 
 
-  const listeReclamations=()=>{
-    navigate("/template/AgentRéclamation")
-  }
+  
   return (
     <div className="reclamation-container">
       <h1 className="reclamation-title">Application Réclamation</h1>

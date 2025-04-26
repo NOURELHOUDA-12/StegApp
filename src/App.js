@@ -25,6 +25,8 @@ import ServiceDepannage from "./Components/Services/ServicesDépanage/ServiceDep
 import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeReclamation'
  import Messages from './Components/Client/Message/Message'
  import SignupAdministration from './Components/Agent/Administration/SignUpAdministration'
+ import AutoReleve from './Components/Client/Autoreleve/Autoreleve'
+ import Facture from './Components/Client/Facture/Facture'
 function App() {  
   return (  
     <Routes>  
@@ -48,11 +50,12 @@ function App() {
        </Route>
 
        <Route path="/HomePage" element={<HomePage />}>
-      
        <Route path="FirstPage" element={<FirstPage />} /> 
        <Route path="FirstPageeeeeeeeeeeeeeeeeeeeeeeee" element={<FirstPage />} /> 
        <Route path="Réclamation" element={<Réclamation />} />  
        <Route path="Messages" element={<Messages />} />  
+       <Route path="AutoReleve" element={<AutoReleve />} /> 
+       <Route path="Facture" element={<Facture />} /> 
        </Route>
      
 

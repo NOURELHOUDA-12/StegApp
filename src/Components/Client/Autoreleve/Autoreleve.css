@@ -1,0 +1,99 @@
+.steg-interface {  
+    max-width: 800px;  
+    margin: 0 auto;  
+    font-family: Arial, sans-serif;  
+  }  
+  
+  .header {  
+    background-color: #f0f0f0;  
+    padding: 20px;  
+    text-align: center;  
+  }  
+  
+  .auto-releve {  
+    padding: 20px;  
+  }  
+  
+  table {  
+    width: 100%;  
+    border-collapse: collapse;  
+    margin-bottom: 20px;  
+  }  
+  
+  table, th, td {  
+    border: 1px solid #ddd;  
+    padding: 8px;  
+  }  
+  
+  input {  
+    width: 100%;  
+    padding: 5px;  
+  }  
+  
+  button {  
+    background-color: #007bff;  
+    color: white;  
+    border: none;  
+    padding: 10px 20px;  
+    cursor: pointer;  
+  }  
+  
+  footer {  
+    text-align: center;  
+    padding: 10px;  
+    background-color: #f0f0f0;  
+  }  
+  .reference-input {  
+    display: flex;  
+    margin-bottom: 20px;  
+  }  
+  
+  .reference-input input {  
+    flex-grow: 1;  
+    padding: 10px;  
+    margin-right: 10px;  
+  }  
+  
+  .reference-input button {  
+    padding: 10px 20px;  
+  }  
+  
+  .error-message {  
+    color: red;  
+    background-color: #ffeeee;  
+    border: 1px solid red;  
+    padding: 10px;  
+    margin-bottom: 20px;  
+    text-align: center;  
+  }  
+  .image-overlay {
+    position: fixed; /* Pour le superposer au reste du contenu */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Pour être au-dessus des autres éléments */
+  }
+  
+  .image-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative; /* Pour positionner le bouton de fermeture */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
