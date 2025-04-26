@@ -39,7 +39,7 @@ const ListeReclamations = () => {
     const unsubscribe = onSnapshot(q, async (snapshot) => {
       const allDocs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-      const filtered = allDocs.filter(doc => doc.refType === 'Verification compteur');
+      const filtered = allDocs.filter(doc => doc.energyTypePolice === 'Électricité' ||doc.energyType === 'Électricité');
       setReclamations(filtered);
 
       if (snapshot.docs.length > 0) {

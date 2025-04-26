@@ -4,23 +4,17 @@ import { Link } from "react-router-dom";
 // Importez vos composants de contenu  
 import Dashboard from "../Components/Dashboard";  
 import Customers from "../Components/Customers";  
-// import Messages from "./components/Messages";  
-// import Help from "./components/Help";  
-// import Settings from "./components/Settings";  
-// import Password from "./components/Password";  
+ 
 
 export function AdminDashboard() {  
-    // State pour gérer le contenu actuel  
     const [currentContent, setCurrentContent] = useState(<Dashboard />);  
 
-    // Fonction pour mettre à jour le contenu  
     const handleNavigation = (content) => {  
         setCurrentContent(content);  
     };  
 
     return (  
         <div className="container">  
-            {/* Navigation Sidebar */}  
             <div className="navigation">  
                 <ul>  
                     <li>  

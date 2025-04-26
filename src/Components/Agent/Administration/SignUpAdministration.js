@@ -15,7 +15,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const[matricule,setMatricule]=useState("")
-  const [userType, setUserType] = useState(""); // Default value
+  const [userType, setUserType] = useState("Service dépannage"); 
 
   const auth = getAuth();
   const handleSubmit = async (e) => {
@@ -31,7 +31,6 @@ const SignUp = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
   
-      // Ajouter les données dans Firestore avec l'UID comme ID du document
       await setDoc(doc(db, "users", user.uid), {
         name: name,
         email: email,
@@ -72,7 +71,7 @@ const SignUp = () => {
               required
             >
              
-              <option value="Service dépannage">Service dépannage </option>
+              {/* <option value="Service dépannage">Service dépannage </option> */}
               <option value="Service Etude">Service Etude</option>
               <option value="Service Financier">Service Financier</option>
               <option value="Service gaz">Service gaz</option>

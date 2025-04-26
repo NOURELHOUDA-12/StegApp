@@ -27,6 +27,8 @@ import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeRe
  import SignupAdministration from './Components/Agent/Administration/SignUpAdministration'
  import AutoReleve from './Components/Client/Autoreleve/Autoreleve'
  import Facture from './Components/Client/Facture/Facture'
+ import ServiceGaz from'./Components/Services/ServiceGaz/ServiceGaz'
+ import ReclamationGaz from './Components/Services/ServiceGaz/ReclamationsGaz'
 function App() {  
   return (  
     <Routes>  
@@ -46,7 +48,11 @@ function App() {
        {/* Service Depannage */}
        <Route path="/ServiceDepannage" element={<ServiceDepannage />}>
        <Route path="ReclamationDepanage" element={<ReclamationDepanage />} /> 
-      
+       </Route>
+
+      {/* Service Gaz */}
+      <Route path="/ServiceGaz" element={<ServiceGaz/>}>
+      <Route path="ReclamationGaz" element={<ReclamationGaz />} /> 
        </Route>
 
        <Route path="/HomePage" element={<HomePage />}>

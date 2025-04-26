@@ -10,9 +10,12 @@ function STEGInterface() {
   const [referenceInput, setReferenceInput] = useState('');
   const [selectedCompteur, setSelectedCompteur] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [nouvelIndex, setNouvelIndex] = useState('');
+  const [nouvelIndex, setNouvelIndex] = useState({});
+
   const [isLoading, setIsLoading] = useState(false);
   const [showImageDiv, setShowImageDiv] = useState(false);
+  const [imagePath, setImagePath] = useState('');
+
 
 
   const verifierReference = async () => {
@@ -53,41 +56,54 @@ function STEGInterface() {
     }
   };
 
+const handleNouvelIndexChange = (compteurId, value) => {
+  setNouvelIndex(prevState => ({
+    ...prevState,
+    [compteurId]: value
+  }));
+};
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  if (Array.isArray(selectedCompteur) && selectedCompteur.length > 0) {
+    try {
+      const relevesRef = collection(db, 'Releves');
 
-    if (selectedCompteur) {
-      try {
-        // Logique de mise à jour du nouvel index  
+      for (const compteur of selectedCompteur) {
+        const nouvelIndexValue = nouvelIndex[compteur.id];
+        if (!nouvelIndexValue) continue;
+
         const nouvelIndexDoc = {
-          compteurId: selectedCompteur.id,
-          reference: selectedCompteur.reference,
-          nouvelIndex: nouvelIndex,
+          compteurId: compteur.id,
+          reference: compteur.reference,
+          nouvelIndex: nouvelIndexValue,
           dateReleve: new Date(),
-          userId: 'ID_UTILISATEUR_CONNECTE' // À remplacer par l'ID de l'utilisateur connecté  
+          userId: 'ID_UTILISATEUR_CONNECTE'
         };
 
-        // Ajouter le nouvel index dans une collection 'Releves'  
-        const relevesRef = collection(db, 'Releves');
         await addDoc(relevesRef, nouvelIndexDoc);
-
-        // Réinitialisation après soumission  
-        setReferenceInput('');
-        setSelectedCompteur(null);
-        setNouvelIndex('');
-        setShowImageDiv(true);
-
-
-      } catch (error) {
-        console.error('Erreur lors de l\'envoi:', error);
-        // alert('Erreur lors de l\'enregistrement du nouvel index');
-        setShowImageDiv(true);
-
       }
+
+      // Choisir l'image à afficher
+      if (referenceInput === "322583221") {
+        setImagePath("/assets/imgs/FactureHamdi.PNG");
+      } else if (referenceInput === "336084740") {
+        setImagePath("/assets/imgs/FactureAmeni.PNG");
+      }
+
+      setReferenceInput('');
+      setSelectedCompteur([]);
+      setNouvelIndex({});
+      setShowImageDiv(true);
+
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      setShowImageDiv(true);
     }
-  };
+  }
+};
+
 
   const handleCloseImageDiv = () => {
     setShowImageDiv(false);
@@ -150,8 +166,8 @@ function STEGInterface() {
                     <td>
                       <input
                         type="number"
-                        value={nouvelIndex}
-                        onChange={(e) => setNouvelIndex(e.target.value)}
+                        value={nouvelIndex[compteur.id] || ''}
+                        onChange={(e) => handleNouvelIndexChange(compteur.id, e.target.value)}
                         required
                         min={compteur.ancienIndex || 0}
                       />
@@ -160,7 +176,7 @@ function STEGInterface() {
                 ))}
               </tbody>
             </table>
-            <button type="submit">Envoyer</button> {/* Comment gérez-vous l'envoi pour plusieurs compteurs ? */}
+            <button type="submit">Envoyer</button> 
           </form>
         )}
 
@@ -168,9 +184,8 @@ function STEGInterface() {
           <div className="image-overlay">
             <div className="image-container">
               <button className="close-button" onClick={handleCloseImageDiv}>X</button>
-              <img src="/assets/imgs/Facture.PNG" alt="Confirmation" style={{ maxWidth: '100%', height: 'auto' }} />
+              <img src={imagePath} alt="Confirmation" style={{ maxWidth: '100%', height: 'auto' }} />
               <p>Votre auto-relève a été enregistrée avec succès !</p>
-              <p>{parseInt(nouvelIndex, 10)}</p>
             </div>
           </div>
         )}
