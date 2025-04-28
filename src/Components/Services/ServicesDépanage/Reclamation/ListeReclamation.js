@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../../../firebase'; 
+import { db } from '../../../../firebase'; 
 import { collection, query, onSnapshot, doc, getDoc, deleteDoc, limit, startAfter, orderBy, addDoc, serverTimestamp } from 'firebase/firestore';
-import styles from '../../ReclamationStyle';
+import styles from '../../../ReclamationStyle';
 const ITEMS_PER_PAGE = 5;
 
 const ListeReclamations = () => {

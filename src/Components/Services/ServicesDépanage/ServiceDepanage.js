@@ -22,7 +22,7 @@ function AdminApp() {
         <nav style={styles.adminNav}>
           <a href="/ServiceDepannage/ReclamationDepanage" style={styles.adminNavLink}>Réclamation</a>
           
-          <a href="/admin/settings" style={styles.adminNavLink}>Paramètres</a>
+          <a href="/ServiceDepannage/ReclamationDepanage" style={styles.adminNavLink}>Rendez_vous</a>
           <button onClick={() => navigate('/')} style={styles.adminNavLink}>Se déconnecter</button>
         </nav>
       </div>

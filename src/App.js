@@ -22,7 +22,7 @@ import Projects from'./Pages/Project/Project'
 import  StegHome from './Components/SitePage/SitePage'
 import LoginAdministration from './Components/Agent/Administration/Login'
 import ServiceDepannage from "./Components/Services/ServicesDépanage/ServiceDepanage"
-import ReclamationDepanage from './Components/Services/ServicesDépanage/ListeReclamation'
+import ReclamationDepanage from './Components/Services/ServicesDépanage/Reclamation/ListeReclamation'
  import Messages from './Components/Client/Message/Message'
  import SignupAdministration from './Components/Agent/Administration/SignUpAdministration'
  import AutoReleve from './Components/Client/Autoreleve/Autoreleve'
