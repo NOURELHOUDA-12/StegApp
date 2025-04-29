@@ -15,12 +15,12 @@ const ListeReclamations = () => {
   const [lastVisible, setLastVisible] = useState(null);
   const [hasNextPage, setHasNextPage] = useState(false);
   const [isModalDetailsOpen, setIsModalDetailsOpen] = useState(false);
-  const [isModalReponseOpen, setIsModalReponseOpen] = useState(false); // Nouvel état pour le modal de réponse
+  const [isModalReponseOpen, setIsModalReponseOpen] = useState(false); 
   const [reponseMessage, setReponseMessage] = useState('');
 
   useEffect(() => {
     const unsubscribe = fetchReclamations();
-    return () => unsubscribe && unsubscribe(); // nettoyage propre
+    return () => unsubscribe && unsubscribe(); 
   }, [currentPage]);
 
   const fetchReclamations = () => {
@@ -122,10 +122,7 @@ const ListeReclamations = () => {
  
 
 
-  const handleCloseDetailsModal = () => {
-    setIsModalDetailsOpen(false);
-    setSelectedReclamation(null);
-  };
+
 
   const envoyerReponse = async () => {
     if (selectedReclamation && reponseMessage.trim() !== '') {

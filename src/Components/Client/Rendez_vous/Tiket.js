@@ -1,19 +1,19 @@
 import React from 'react';
-import './Ticket.css'; // Importez le CSS pour le composant Ticket
+import './Ticket.css';
 
-function Ticket({ ticketData, onClose, qrCodeImage }) {
+function Ticket({ ticketData, onClose }) {
   if (!ticketData) {
     return null;
   }
 
-  // Générer un nombre aléatoire de clients en attente entre 1 et 100
-  const waitingClients = Math.floor(Math.random() * 100) + 1;
+ 
+  const waitingClients = Math.floor(Math.random() * 30) + 1;
 
-  // Générer un guichet aléatoire si le service est "Service Clientéle"
-  const guichets = ['Gichet 1', 'Gichet 2'];
+  
+  const guichets = ['Gichet 1', 'Gichet 2',"gichet 3"];
   const randomGuichet = ticketData.service === 'Service Clientéle'
     ? guichets[Math.floor(Math.random() * guichets.length)]
-    : ticketData.clienteleOption; // Utiliser la sélection si elle existe pour d'autres services
+    : ticketData.clienteleOption; 
 
   return (
     <div className="ticket-container">

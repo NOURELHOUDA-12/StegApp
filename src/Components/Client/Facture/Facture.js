@@ -121,7 +121,7 @@ function Facture() {
                     
                     <button >Imprimer</button>
                     <img src={factureDetails.imageUrl} alt="Facture" style={{ maxWidth: '100%', height: '100%' }} />
-                    <button onClick={() => setShowImage(false)}>Fermer l'image</button>
+                    <button onClick={() => setShowImage(false)}>Fermer </button>
                 </div>
             );
         }

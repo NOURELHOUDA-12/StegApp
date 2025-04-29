@@ -30,6 +30,8 @@ import ReclamationDepanage from './Components/Services/ServicesDépanage/Reclama
  import ServiceGaz from'./Components/Services/ServiceGaz/ServiceGaz'
  import ReclamationGaz from './Components/Services/ServiceGaz/ReclamationsGaz'
  import RDV from './Components/Client/Rendez_vous/Rendez_vous'
+ import ListeRDV from'./Components/Services/ServicesDépanage/RDV/ListeDesRDV'
+ import AdminDashbord from './Components/Agent/Administration/Dashboard/Dashbord'
 function App() {  
   return (  
     <Routes>  
@@ -38,6 +40,8 @@ function App() {
        <Route path="/LoginAdministration" element={<LoginAdministration />}></Route>
        <Route path="/Signup" element={<SignUp />}></Route>
        <Route path="/SignupAdministration" element={<SignupAdministration />}></Route>
+       <Route path="/AdminDashbord" element={<AdminDashbord />}></Route>
+
       
 
 
@@ -49,6 +53,7 @@ function App() {
        {/* Service Depannage */}
        <Route path="/ServiceDepannage" element={<ServiceDepannage />}>
        <Route path="ReclamationDepanage" element={<ReclamationDepanage />} /> 
+       <Route path="ListeRDV" element={<ListeRDV />} /> 
        </Route>
 
       {/* Service Gaz */}

@@ -153,6 +153,10 @@ const Login = () => {
       // 1. Rechercher l'email correspondant au matricule dans Firestore
       const usersRef = collection(db, "users");
       const q = query(usersRef, where("matricule", "==", matricule));
+setMatricule(q)
+console.log(matricule)
+
+
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
@@ -168,15 +172,25 @@ const Login = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      console.log("Utilisateur connecté:", user.email);
 
+
+
+
+      console.log("Utilisateur connecté:", user.email);
+      
+      if( userData.matricule ==="80100"){
+        navigate("/AdminDashbord");
+      }
       if (userData.type === "Service dépannage ") {
         navigate("/ServiceDepannage/ReclamationDepanage");
       } else if (userData.type === "Service gaz") {
         navigate("/ServiceGaz/ReclamationGaz");
+
+        
       } else {
         setError("Vous n'êtes pas un agent autorisé.");
       }
+
     } catch (error) {
       setError("Matricule ou mot de passe incorrect.");
       console.error("Erreur d'authentification :", error.message);
