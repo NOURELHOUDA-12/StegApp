@@ -242,7 +242,7 @@ function AppointmentForm() {
           <h2 className="form-heading">Prendre un Rendez-vous</h2>
 
           <div className="form-group">
-            <label htmlFor="ville" className="form-label">Ville :</label>
+            <label htmlFor="ville" className="form-label">Region :</label>
             <select
               id="ville"
               className="form-select"
@@ -295,7 +295,7 @@ function AppointmentForm() {
             </select>
           </div>
 
-          {service === 'Service Clientéle' && (
+          {/* {service === 'Service Clientéle' && (
             <div className="form-group">
               <label htmlFor="clienteleOption" className="form-label">Guichet :</label>
               <select
@@ -312,7 +312,7 @@ function AppointmentForm() {
                 ))}
               </select>
             </div>
-          )}
+          )} */}
 
           <div className="form-group">
             <label htmlFor="date" className="form-label">Date :</label>
