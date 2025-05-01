@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../../../../firebase'; 
-import { collection, query, onSnapshot, doc, getDoc, deleteDoc, limit, startAfter, orderBy, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../../../firebase';
+import { collection, query, onSnapshot, doc, getDoc, deleteDoc, limit, startAfter, orderBy, addDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import styles from '../../../ReclamationStyle';
+
 const ITEMS_PER_PAGE = 5;
 
 const ListeReclamations = () => {
@@ -15,12 +16,13 @@ const ListeReclamations = () => {
   const [lastVisible, setLastVisible] = useState(null);
   const [hasNextPage, setHasNextPage] = useState(false);
   const [isModalDetailsOpen, setIsModalDetailsOpen] = useState(false);
-  const [isModalReponseOpen, setIsModalReponseOpen] = useState(false); 
+  const [isModalReponseOpen, setIsModalReponseOpen] = useState(false);
   const [reponseMessage, setReponseMessage] = useState('');
+  const [reclamationStatus, setReclamationStatus] = useState({}); // Pour stocker le statut de chaque réclamation
 
   useEffect(() => {
     const unsubscribe = fetchReclamations();
-    return () => unsubscribe && unsubscribe(); 
+    return () => unsubscribe && unsubscribe();
   }, [currentPage]);
 
   const fetchReclamations = () => {
@@ -39,8 +41,14 @@ const ListeReclamations = () => {
     const unsubscribe = onSnapshot(q, async (snapshot) => {
       const allDocs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-      const filtered = allDocs.filter(doc => doc.energyTypePolice === 'Électricité' ||doc.energyType === 'Électricité');
+      const filtered = allDocs.filter(doc => doc.energyTypePolice === 'Électricité' || doc.energyType === 'Électricité');
       setReclamations(filtered);
+
+      const statusMap = {};
+      filtered.forEach(doc => {
+        statusMap[doc.id] = doc.status || 'Nouveau'; // Initialiser le statut si non défini
+      });
+      setReclamationStatus(statusMap);
 
       if (snapshot.docs.length > 0) {
         setLastVisible(snapshot.docs[snapshot.docs.length - 1]);
@@ -77,16 +85,6 @@ const ListeReclamations = () => {
     setSelectedReclamation(null);
   };
 
-  const handleDeleteReclamation = async (id) => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette réclamation ?')) {
-      try {
-        await deleteDoc(doc(db, 'reclamations', id));
-      } catch (error) {
-        setError('Erreur lors de la suppression de la réclamation : ' + error.message);
-      }
-    }
-  };
-
   const goToPreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
@@ -119,10 +117,6 @@ const ListeReclamations = () => {
   const handleReponseChange = (event) => {
     setReponseMessage(event.target.value);
   };
- 
-
-
-
 
   const envoyerReponse = async () => {
     if (selectedReclamation && reponseMessage.trim() !== '') {
@@ -135,6 +129,19 @@ const ListeReclamations = () => {
           createdAt: serverTimestamp(),
           reclamationId: selectedReclamation.id, // Optionnel : pour lier le message à la réclamation
         });
+
+        // Mettre à jour le statut de la réclamation dans la base de données
+        const reclamationDocRef = doc(db, 'reclamations', selectedReclamation.id);
+        await updateDoc(reclamationDocRef, {
+          status: 'Traitée',
+        });
+
+        // Mettre à jour l'état local du statut
+        setReclamationStatus(prevStatus => ({
+          ...prevStatus,
+          [selectedReclamation.id]: 'Traitée',
+        }));
+
         alert('Réponse envoyée avec succès !');
         handleCloseReponseModal();
       } catch (error) {
@@ -144,7 +151,7 @@ const ListeReclamations = () => {
       alert('Veuillez écrire un message avant d\'envoyer.');
     }
   };
-  
+
   return (
     <div style={styles.container}>
       <h2 style={styles.titre}>Liste des Réclamations</h2>
@@ -173,9 +180,16 @@ const ListeReclamations = () => {
                   </td>
                   <td style={styles.td}>{userTypes[reclamation.userId] || 'Chargement...'}</td>
                   <td style={styles.td}>
-                    <button style={styles.boutonDetails} onClick={() => handleVoirDetails(reclamation)}>Voir</button>
-
-                    <button style={styles.boutonSupprimer} onClick={() => handleDeleteReclamation(reclamation.id)}>Supprimer</button>
+                    <button
+                      style={{
+                        ...styles.boutonDetails,
+                        backgroundColor: reclamationStatus[reclamation.id] === 'Traitée' ? 'green' : styles.boutonDetails.backgroundColor,
+                      }}
+                      onClick={() => handleVoirDetails(reclamation)}
+                      disabled={reclamationStatus[reclamation.id] === 'Traitée'}
+                    >
+                      {reclamationStatus[reclamation.id] === 'Traitée' ? 'Traitée' : 'Traiter'}
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -198,7 +212,7 @@ const ListeReclamations = () => {
             <h3 style={styles.modalTitre}>Détails de la Réclamation</h3>
             <p><strong>Référence:</strong> {selectedReclamation.reference}</p>
             <p><strong>Date:</strong> {new Date(selectedReclamation.createdAt?.seconds * 1000).toLocaleString()}</p>
-            <p><strong>Statut:</strong> {selectedReclamation.status}</p>
+            <p><strong>Statut:</strong> {reclamationStatus[selectedReclamation.id]}</p>
             <p><strong>Type Utilisateur:</strong> {userTypes[selectedReclamation.userId] || 'Inconnu'}</p>
             <p><strong>Email:</strong> {selectedReclamation.userEmail}</p>
             <p><strong>ID Utilisateur:</strong> {selectedReclamation.userId}</p>
@@ -211,55 +225,49 @@ const ListeReclamations = () => {
             <p><strong>Demande Police:</strong> {selectedReclamation.demandePolice}</p>
             <p><strong>Champ Sélectionné:</strong> {selectedReclamation.selectedInput}</p>
             <button style={styles.boutonFermer} onClick={handleCloseModal}>Fermer</button>
-            <button style={styles.boutonRepondre} onClick={() => handleOuvrirModalReponse(selectedReclamation)}>Répondre</button> 
-            </div>
+            {reclamationStatus[selectedReclamation.id] !== 'Traitée' && (
+              <button style={styles.boutonRepondre} onClick={() => handleOuvrirModalReponse(selectedReclamation)}>Répondre</button>
+            )}
+          </div>
         </div>
       )}
-    {isModalReponseOpen && selectedReclamation && (
-  <div style={styles.modalOverlay}>
-    <div style={styles.backdrop} />
-    <div style={styles.modalContainer}>
-      <div style={styles.modalContent}>
-        <h3 style={styles.modalTitre}>Répondre à la Réclamation</h3>
-        <p style={styles.modalRef}>
-          <strong>Référence :</strong> {selectedReclamation.reference}
-        </p>
+      {isModalReponseOpen && selectedReclamation && (
+        <div style={styles.modalOverlay}>
+          <div style={styles.backdrop} />
+          <div style={styles.modalContainer}>
+            <div style={styles.modalContent}>
+              <h3 style={styles.modalTitre}>Répondre à la Réclamation</h3>
+              <p style={styles.modalRef}>
+                <strong>Référence :</strong> {selectedReclamation.reference}
+              </p>
 
-        <label htmlFor="reponse" style={styles.label}>
-          <strong>Votre Réponse :</strong>
-        </label>
-        <textarea
-          id="reponse"
-          value={reponseMessage}
-          onChange={handleReponseChange}
-          placeholder="Écrivez votre réponse ici..."
-          style={styles.textarea}
-        />
+              <label htmlFor="reponse" style={styles.label}>
+                <strong>Votre Réponse :</strong>
+              </label>
+              <textarea
+                id="reponse"
+                value={reponseMessage}
+                onChange={handleReponseChange}
+                placeholder="Écrivez votre réponse ici..."
+                style={styles.textarea}
+              />
 
-        <div style={styles.actions}>
-          <button style={styles.boutonFermer} onClick={handleCloseReponseModal}>
-            Annuler
-          </button>
-          <button style={styles.boutonEnvoyer} onClick={envoyerReponse}>
-            Envoyer la Réponse
-          </button>
+              <div style={styles.actions}>
+                <button style={styles.boutonFermer} onClick={handleCloseReponseModal}>
+                  Annuler
+                </button>
+                <button style={styles.boutonEnvoyer} onClick={envoyerReponse}>
+                  Envoyer la Réponse
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
 
     </div>
   );
 };
-
-
-
-
-
-  
-  
-
 
 export default ListeReclamations;

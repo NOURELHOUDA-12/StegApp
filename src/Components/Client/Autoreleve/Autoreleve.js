@@ -146,45 +146,56 @@ const handleSubmit = async (e) => {
         )}
 
 
-        {Array.isArray(selectedCompteur) && selectedCompteur.length > 0 && (
-          <form onSubmit={handleSubmit}>
-            <table>
-              <thead>
-                <tr>
-                  <th>N° de compteur</th>
-                  <th>Libellé tarif</th>
-                  <th>Ancien Index</th>
-                  <th>Nouvel index</th>
-                </tr>
-              </thead>
-              <tbody>
-                {selectedCompteur.map((compteur) => (
-                  <tr key={compteur.id}>
-                    <td>{compteur.reference}</td>
-                    <td>{compteur.libelle}</td>
-                    <td>{compteur.ancienIndex}</td>
-                    <td>
-                      <input
-                        type="number"
-                        value={nouvelIndex[compteur.id] || ''}
-                        onChange={(e) => handleNouvelIndexChange(compteur.id, e.target.value)}
-                        required
-                        min={compteur.ancienIndex || 0}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <button type="submit">Envoyer</button> 
-          </form>
-        )}
-
+{Array.isArray(selectedCompteur) && selectedCompteur.length > 0 && (
+  <form onSubmit={handleSubmit}>
+    <table>
+      <thead>
+        <tr>
+          <th>N° de compteur</th>
+          <th>Libellé tarif</th>
+          <th>Ancien Index</th>
+          <th>Nouvel index</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/* Trier le tableau pour mettre "Electricité" en premier */}
+        {selectedCompteur
+          .slice() // Créer une copie du tableau pour éviter de modifier l'original
+          .sort((a, b) => {
+            if (a.libelle.trim() === "Eclairage".trim() && b.libelle.trim() !== "Eclairage".trim()) {
+              return -1;
+            }
+            if (a.libelle.trim() !== "Eclairage".trim() && b.libelle.trim() === "Eclairage".trim()) {
+              return 1;
+            }
+            return 0; // L'ordre relatif ne change pas pour les autres éléments
+          })
+          .map((compteur) => (
+            <tr key={compteur.id}>
+              <td>{compteur.reference}</td>
+              <td>{compteur.libelle}</td>
+              <td>{compteur.ancienIndex}</td>
+              <td>
+                <input
+                  type="number"
+                  value={nouvelIndex[compteur.id] || ''}
+                  onChange={(e) => handleNouvelIndexChange(compteur.id, e.target.value)}
+                  required
+                  min={compteur.ancienIndex || 0}
+                />
+              </td>
+            </tr>
+          ))}
+      </tbody>
+    </table>
+    <button type="submit">Envoyer</button>
+  </form>
+)}
         {showImageDiv && (
           <div className="image-overlay">
             <div className="image-container">
               <button className="close-button" onClick={handleCloseImageDiv}>X</button>
-              <img src={imagePath} alt="Confirmation" style={{ maxWidth: '100%', height: 'auto' }} />
+              <img src={imagePath} alt="Confirmation" style={{ maxWidth: '80%', height: 'auto' }} />
               <p>Votre auto-relève a été enregistrée avec succès !</p>
             </div>
           </div>

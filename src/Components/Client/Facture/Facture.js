@@ -162,7 +162,7 @@ function Facture() {
                         <div className="facture-actions">
                             <button onClick={handlePayerClick}>Payer</button>
                             {factureDetails.imageUrl && (
-                                <button onClick={handleAfficherImageClick} style={{ backgroundColor: '#007bff', color: 'black', border: 'none', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '1em', marginLeft: '10px' }}>Afficher l'image</button>
+                                <button onClick={handleAfficherImageClick} style={{ backgroundColor: '#007bff', color: 'black', border: 'none', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '1em', marginLeft: '10px' }}>Afficher la Facture</button>
                             )}
                         </div>
                     </div>

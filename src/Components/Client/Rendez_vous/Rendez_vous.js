@@ -249,7 +249,7 @@ function AppointmentForm() {
               value={villeSelectionnee}
               onChange={handleVilleChange}
             >
-              <option value="">Sélectionner une ville</option>
+              <option value="">Sélectionner une Region</option>
               {villes.map((ville) => (
                 <option key={ville} value={ville}>
                   {ville}
@@ -275,7 +275,7 @@ function AppointmentForm() {
                   </option>
                 ))}
               </select>
-              {districtsAffiches.length === 0 && <p className="form-message">Veuillez sélectionner une ville pour afficher les districts.</p>}
+              {districtsAffiches.length === 0 && <p className="form-message">Veuillez sélectionner une Region pour afficher les districts.</p>}
             </div>
           )}
 
