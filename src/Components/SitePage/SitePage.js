@@ -199,7 +199,7 @@ function App() {
           <img src={'/assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
         </div>
         <nav style={styles.nav}>
-          <a href="#" style={styles.navLink} onClick={() => handleCardClick('/HomePage/FirstPage')}>Accueil</a>
+          <a href="#" style={styles.navLink} onClick={() => handleCardClick('/')}>Accueil</a>
           <a href="#" style={styles.navLink}>Satisfaction</a>
           <a href="#" style={styles.navLink}>Contact</a>
           <a href="#" style={styles.navLink}onClick={() => handleCardClick('/Login')}>Espace client</a>
