@@ -181,14 +181,20 @@ console.log(matricule)
       if( userData.matricule ==="80100"){
         navigate("/AdminDashbord");
       }
+
       if (userData.type === "Service dépannage ") {
         navigate("/ServiceDepannage/ReclamationDepanage");
-      } else if (userData.type === "Service gaz") {
+      } 
+      else if (userData.type === "Service gaz") {
         navigate("/ServiceGaz/ReclamationGaz");
-
-        
-      } else {
-        setError("Vous n'êtes pas un agent autorisé.");
+       
+      }
+      else if (userData.type === "Service Clientéle") {
+        navigate("/ServiceClientele/ReclamationCLientele");
+       
+      }
+       else {
+        setError("Vous n'êtes pas un agent autorisé./ ou votre service n'est pas en cours mis à jour");
       }
 
     } catch (error) {

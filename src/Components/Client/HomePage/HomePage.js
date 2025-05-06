@@ -17,10 +17,10 @@ function App() {
                 </div>
                 <nav style={styles.nav}>
                     <a href="#" style={styles.navLink} onClick={() => handleCardClick('/HomePage/FirstPage')}>Accueil</a>
-                    <a href="#" style={styles.navLink}>Actualités</a>
+                    {/* <a href="#" style={styles.navLink}>Actualités</a>
                     <a href="#" style={styles.navLink}>Rendez-vous</a>
                     <a href="#" style={styles.navLink}>Contact</a>
-                    <a href="#" style={styles.navLink}>Satisfaction</a>
+                    <a href="#" style={styles.navLink}>Satisfaction</a> */}
                 </nav>
             </div>
 

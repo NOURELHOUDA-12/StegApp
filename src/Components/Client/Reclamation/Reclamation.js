@@ -21,7 +21,99 @@ const ReclamationForm = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [progress, setProgress] = useState(0)
-  const navigate=useNavigate()
+    const [districtsAffiches, setDistrictsAffiches] = useState([]);
+  
+    const villes = ["Nabeul", "Grand Tunis", "Bizerte", "Beja", "Jendouba", "Siliana", "Le Kef", "Zaghouan", "Sousse", "Kairouan", "Monastir", "Mahdia", "Sfax", "Sidi Bouzid", "Kasserine", "Gafsa", "Gabes", "Tozeur", "Kebili", "Medenine", "Tataouine"];
+    const districtsParVille = {
+      "Nabeul": ["District Hammamet", "District Nabeul", "District Menzel Bouzelfa", "District Menzel Tmim", "Agence Bouargoub", "Agence Korba", "Agence Klebia", "Agence Haouaria", "Agence El Mida", "Agence Grombalia", "Agence Soliman", "Agence Beni Khalled"],
+      "Grand Tunis": ["District Tunis Ville", "District Le Kram", "District Bardo", "District Manouba", "District Ariana", "Agence Siege Social", "Agence La Marsa", "Agence Bab Souika", "Agence Bab El Jazira", "Agence El Ouardia-Ibn-Sina", "Agence Menzeh"],
+      "Bizerte": ["District Bizerte", "District Menzel Bourguiba", "Agence Ras Jebal", "Agence Utique", "Agence Mateur", "Agence Joumine", "Agence Sejnane"],
+      "Beja": ["District Zaghouane", "Agence El Fahs", "Agence Nadhour", "Agence Souaf"],
+      "Jendouba": [
+        "District Jendouba",
+        "District Tabarka",
+        "Agence Bousalem",
+        "Agence Ghardimaou",
+        "Agence Ain Drahem",
+        "Agence Fernana"
+      ],
+      "Siliana": ["District Seliana", "Agence Makther", "Agence Gaafour", "Agence Krib", "Agence Rouhia"],
+      "Le Kef": ["District Le Kef", "Agence Dahmani", "Agence Tajerouine", "Agence Sers"],
+      "Zaghouan":["District Zaghouane","Agence El Fahs","Agence Nadhour","Agence Souaf"] ,
+      "Sousse": ["District Sousse Ville", "District Sousse Nord", "District Enfidha", "District Msaken"],
+      "Kairouan": ["District Kairouan", "District Kairouan Nord", "Agence oueslatia", "Agence Hajeb Layoun", "Agence Haffouz", "Agence Bouhajla", "Agence Sbikha"],
+      "Monastir": [
+        "District Moknine",
+        "District Monastir",
+        "Agence Jemmel",
+        "Agence Ksar Helal",
+        "Agence Moknine"
+      ],
+      "Mahdia": ["District Mahdia", "District El Jem", "Agence Chebba", "Agence Chorbane", "Agence Souassi", "Agence Sidi Alouane"],
+      "Sfax": ["District Sfax Ville", "District Sfax Nord", "District Sfax Sud", "District Jebeniana", "District Mahres", "Agence Bir Ali", "Agence Skhira", "Agence Elhencha", "Agence cité El Habib", "Agence Kerkennah", "Agence Agareb"],
+      "Sidi Bouzid": [
+        "District Sidi Bouzid",
+        "Agence Jelma",
+        "District Meknassy",
+        "Agence Ouled Haffouz",
+        "Agence Regueb",
+        "Agence Bir El Hfey"
+      ],
+      "Kasserine": [
+        "District Kasserine",
+        "District Sbeitla",
+        "Agence Tala",
+        "Agence Sbiba",
+        "Agence Feriana"
+      ],
+      "Gafsa": [
+        "District Gafsa",
+        "Agence Mdhila",
+        "Agence Sened",
+        "Agence Guettar",
+        "District Metlaoui",
+        "Agence Moulares",
+        "Agence Redeyef"
+      ],
+      "Gabes": [
+        "District Gabes",
+        "Agence Metouia",
+        "Agence El Hamma",
+        "Agence Matmata",
+        "Agence Mareth",
+        "District Gabes Nord",
+        "Agence Ghanouch"
+      ],
+  
+      "Tozeur": ["District Tozeur",
+        "Agence Nafta",
+        "Agence Tameghza"],
+      "Kebili":[
+        "District Kebili",
+        "Agence Douz"
+      ],
+  
+      "Medenine":  [
+        "District Zarzis",
+        "District Mednine",
+        "District Jerba",
+        "Agence Beni Khedache",
+        "District Ben Guerdane",
+        "Agence Midoun"
+      ],
+      "Tataouine": [
+        "District Tataouine",
+        "Agence Ghomrassen",
+        "Agence Remada",
+        "Agence Smar",
+        "Agence Tataouine Centre Ville"
+      ]
+    };
+  
+    const [villeSelectionnee, setVilleSelectionnee] = useState('');
+    const [district, setDistrict] = useState('');
+
+
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress(prev => (prev >= 100 ? 0 : prev + 10));
@@ -111,11 +203,18 @@ const ReclamationForm = () => {
     }
   };
 
-
+  const handleVilleChange = (event) => {
+    const villeChoisie = event.target.value;
+    setVilleSelectionnee(villeChoisie);
+    // Mettre à jour la liste des districts en fonction de la ville choisie
+    setDistrictsAffiches(districtsParVille[villeChoisie] || []);
+    // Réinitialiser le district sélectionné lorsqu'on change de ville
+    setDistrict('');
+  };
   
   return (
     <div className="reclamation-container">
-      <h1 className="reclamation-title">Application Réclamation</h1>
+      <h1 className="reclamation-title"> Réclamation</h1>
       {errorMessage && <div className="reclamation-error-message">{errorMessage}</div>}
         {successMessage && <div className="reclamation-success-message">{successMessage}</div>}
 
@@ -166,7 +265,7 @@ const ReclamationForm = () => {
         {/* Champ Police */}
         {formData.selectedInput === 'police' && (
           <div className="reclamation-input-group">
-            <label htmlFor="police">Police (7 chiffres)</label>
+            <label htmlFor="police">n° Dossier (7 chiffres)</label>
             <input
               type="text"
               id="police"
@@ -184,8 +283,66 @@ const ReclamationForm = () => {
 
         {/* Section Réclamation COMPLÈTE */}
         {formData.selectedInput === 'reference' && formData.reference && (
+
           <div className="reclamation-section">
             <div className="reclamation-input-group">
+            {/* <div className="form-group">
+            <label htmlFor="ville" className="form-label">Region :</label>
+            <select
+              id="ville"
+              className="form-select"
+              // value={villeSelectionnee}
+              // onChange={handleVilleChange}
+            >
+              <option value="">Sélectionner une Region</option>
+              {villes.map((ville) => (
+                <option key={ville} value={ville}>
+                  {ville}
+                </option>
+              ))}
+            </select>
+          </div> */}
+          <div className="form-group">
+            <label htmlFor="ville" className="form-label">Region :</label>
+            <select
+              id="ville"
+              className="form-select"
+              value={villeSelectionnee}
+              onChange={handleVilleChange}
+            >
+              <option value="">Sélectionner une Region</option>
+              {villes.map((ville) => (
+                <option key={ville} value={ville}>
+                  {ville}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {villeSelectionnee && (
+            <div className="form-group">
+              <label htmlFor="district" className="form-label">District :</label>
+              <select
+                id="district"
+                className="form-select"
+                value={district}
+                // onChange={handleDistrictChange}
+                disabled={districtsAffiches.length === 0} // Désactiver si aucune ville n'est sélectionnée
+              >
+                <option value="">Sélectionner un district</option>
+                {districtsAffiches.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+              {districtsAffiches.length === 0 && <p className="form-message">Veuillez sélectionner une Region pour afficher les districts.</p>}
+            </div>
+          )}
+
+
+
+
               <label htmlFor="refType">Choisissez le type de réclamation</label>
               <select
                 id="refType"
@@ -195,14 +352,14 @@ const ReclamationForm = () => {
                 className="reclamation-select"
                 required
               >
-                <option value="">-- Sélectionnez --</option>
                 <option value="Manque de courant / Gaz">Manque de courant / Gaz </option>
                 <option value="Verification compteur">Verification compteur</option>
                 <option value="Erreur index">Erreur index</option>
                 <option value="Afficheur éteint">Afficheur éteint</option>
                 <option value="Remplacement compteur">Remplacement compteur</option>
-                <option value="Correction de l'adresse ou Nom">Correction de l'adresse ou Nom</option>
-                <option value="autres">Autres</option>
+                <option value="Compteur non déplacer">Compteur non déplacer</option>
+                <option value="Compteur non déplacer">Remplacement disjoncteur</option>
+                <option value="Autre">Autre</option>
               </select>
             </div>
             
@@ -253,6 +410,45 @@ const ReclamationForm = () => {
         {/* Section Police COMPLÈTE */}
         {formData.selectedInput === 'police' && formData.police && (
           <div className="reclamation-section">
+
+<div className="form-group">
+            <label htmlFor="ville" className="form-label">Region :</label>
+            <select
+              id="ville"
+              className="form-select"
+              value={villeSelectionnee}
+              onChange={handleVilleChange}
+            >
+              <option value="">Sélectionner une Region</option>
+              {villes.map((ville) => (
+                <option key={ville} value={ville}>
+                  {ville}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {villeSelectionnee && (
+            <div className="form-group">
+              <label htmlFor="district" className="form-label">District :</label>
+              <select
+                id="district"
+                className="form-select"
+                value={district}
+                // onChange={handleDistrictChange}
+                disabled={districtsAffiches.length === 0} // Désactiver si aucune ville n'est sélectionnée
+              >
+                <option value="">Sélectionner un district</option>
+                {districtsAffiches.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+              {districtsAffiches.length === 0 && <p className="form-message">Veuillez sélectionner une Region pour afficher les districts.</p>}
+            </div>
+          )}
+
             <div className="reclamation-input-group">
               <label htmlFor="policeType">Choisissez le type de demande</label>
               <select
@@ -266,6 +462,9 @@ const ReclamationForm = () => {
                 <option value="">-- Sélectionnez --</option>
                 <option value="miseService">Mise en service Électricité ou Gaz</option>
                 <option value="nouveauBranchement">Nouveaux branchements</option>
+                <option value="Relance Etude">Relance Etude</option>
+                <option value="Relance Travaux">Relance Travaux</option>
+
                 <option value="autres">Autres</option>
               </select>
             </div>
@@ -324,7 +523,7 @@ const ReclamationForm = () => {
               <span className="spinner"></span> Envoi en cours...
             </>
           ) : (
-            'Envoyer la demande'
+            'Envoyez la demande'
           )}
         </button>
       </form>

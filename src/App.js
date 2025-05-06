@@ -32,6 +32,7 @@ import ReclamationDepanage from './Components/Services/ServicesDépanage/Reclama
  import RDV from './Components/Client/Rendez_vous/Rendez_vous'
  import ListeRDV from'./Components/Services/ServicesDépanage/RDV/ListeDesRDV'
  import AdminDashbord from './Components/Agent/Administration/Dashboard/Dashbord'
+ import ServiceClientele from './Components/Services/Service Clientele/ServiceClientele'
 function App() {  
   return (  
     <Routes>  
@@ -59,6 +60,12 @@ function App() {
       {/* Service Gaz */}
       <Route path="/ServiceGaz" element={<ServiceGaz/>}>
       <Route path="ReclamationGaz" element={<ReclamationGaz />} /> 
+       </Route>
+
+       
+      {/* Service Gaz */}
+      <Route path="/ServiceClientele" element={<ServiceClientele/>}>
+      <Route path="ReclamationCLientele" element={<ReclamationGaz />} /> 
        </Route>
 
        <Route path="/HomePage" element={<HomePage />}>

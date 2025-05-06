@@ -14,7 +14,7 @@ function AdminApp() {
                     <img src={'/assets/imgs/STEG (2).png'} alt="My STEG Logo" style={styles.logoImageStyle} />
                
         </div>
-        <h1 style={styles.adminTitle}>Service Etude </h1>
+        <h1 style={styles.adminTitle}> Service Clientéle </h1>
         <nav style={styles.adminNav}>
           <a href="/ServiceDepannage/ReclamationDepanage" style={styles.adminNavLink}>Réclamation</a>
           

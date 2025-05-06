@@ -1,144 +1,210 @@
-/* STEGHomePage.css */
-
+/* Base styling */
 .steg-homepage-container {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f4; /* Light background */
-    color: #333; /* Dark text */
-  }
-  
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+.steg-header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.steg-header .logo img {
+  height: 40px;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.main-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+  background-color: #0056b3;
+}
+
+/* Sections */
+.announcements-section,
+.videos-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.announcements-section h2,
+.videos-section h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* Grids */
+.announcements-grid,
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.announcement-card,
+.video-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.announcement-card:hover,
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+.announcement-card img,
+.video-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.announcement-details {
+  padding: 15px;
+  text-align: left;
+}
+
+.announcement-details h3 {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.announcement-details p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.read-more-link {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.read-more-link:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive PDF display */
+.pdf-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  overflow: auto;
+  position: relative;
+}
+
+/* Footer */
+.steg-footer {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
+  font-size: 0.9em;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
   .steg-header {
-    background-color: #007bff; /* STEG blue color (adjust as needed) */
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .steg-header .logo img {
-    height: 50px; /* Adjust logo size */
+
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
   }
-  
-  .steg-header .main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+
+  .main-nav ul li {
+    width: 100%;
   }
-  
-  .steg-header .main-nav ul li {
-    margin-left: 20px;
-  }
-  
-  .steg-header .main-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .announcements-section,
-  .videos-section {
-    padding: 30px;
+
+  .main-nav ul li a {
+    padding: 10px;
     text-align: center;
   }
-  
-  .announcements-section h2,
-  .videos-section h2 {
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
-  .announcements-grid,
-  .videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-  }
-  
-  .announcement-card,
-  .video-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .announcement-card:hover,
-  .video-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .announcement-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
+
   .announcement-details {
-    padding: 20px;
-    text-align: left;
-  }
-  
-  .announcement-details h3 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  .announcement-details p {
-    color: #666;
-    margin-bottom: 15px;
-  }
-  
-  .read-more-link {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .read-more-link:hover {
-    background-color: #0056b3;
-  }
-  
-  .video-card video {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .video-card h3,
-  .video-card p {
-    padding: 15px;
-    text-align: left;
-    margin: 0;
-  }
-  
-  .video-card h3 {
-    color: #333;
-  }
-  
-  .video-card p {
-    color: #666;
-  }
-  
-  .steg-footer {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
   }
-  
-  .steg-footer p {
-    margin: 0;
+
+  .pdf-container {
+    width: 95%;
+    height: 90%;
   }
+}
+@media (max-width: 768px) {
+  .steg-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+  }
+
+  .steg-header .logo img {
+    height: 30px; /* Plus petit logo */
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Liens empilés verticalement */
+    gap: 4px; /* Moins d'espace entre les liens */
+    margin-top: 5px;
+    padding: 0;
+  }
+
+  .main-nav ul li a {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+
+  .announcement-details {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .pdf-container {
+    width: 95%;
+    height: 90%;
+  }
+}

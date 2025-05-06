@@ -67,7 +67,7 @@ const SignUp = () => {
               onChange={(e) => setUserType(e.target.value)}
               required
             >
-              <option value="client ordinaire">client ordinaire</option>
+              <option value="client ordinaire">client Ordinaire</option>
               <option value="client Professionnel">client Professionnel</option>
               
               
