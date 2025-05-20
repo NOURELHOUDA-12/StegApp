@@ -11,6 +11,8 @@ function Facture() {
     const [showPayment, setShowPayment] = useState(false);
     const [showImage, setShowImage] = useState(false);
 
+
+    
     const verifierReference = async () => {
         setFactureDetails(null);
         setShowImage(false); // Cacher l'image lors d'une nouvelle vérification
@@ -46,10 +48,9 @@ function Facture() {
     };
 
     const renderPaymentInterface = () => {
-        // ... (votre code pour l'interface de paiement)
         const currentMinutes = new Date().getMinutes();
         const currentSeconds = new Date().getSeconds();
-        const remainingMinutes = 14 - (currentMinutes % 15); // Exemple de calcul approximatif
+        const remainingMinutes = 14 - (currentMinutes % 15); 
         const remainingSeconds = 60 - currentSeconds;
 
         return (

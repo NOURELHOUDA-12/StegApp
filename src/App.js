@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';  
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
-import Contactez_nous from './Pages/Contact/Contactez'
+// import Contactez_nous from './Pages/Contact/Contactez'
 import Réclamation from './Components/Client/Reclamation/Reclamation'
 import ListeRéclamation from './Components/Client/Reclamation/RéclamationAgent'
 import AgentTemplate from './Pages/Template/AgentTemplate'
@@ -33,6 +33,9 @@ import ReclamationDepanage from './Components/Services/ServicesDépanage/Reclama
  import ListeRDV from'./Components/Services/ServicesDépanage/RDV/ListeDesRDV'
  import AdminDashbord from './Components/Agent/Administration/Dashboard/Dashbord'
  import ServiceClientele from './Components/Services/Service Clientele/ServiceClientele'
+ import Pdf from './Components/SitePage/Pdf'
+ import Contactez_nous from './Components/SitePage/Contactez_nous'
+ import Satisfaction from './Components/SitePage/Stisfaction/Satisfaction'
 function App() {  
   return (  
     <Routes>  
@@ -42,6 +45,10 @@ function App() {
        <Route path="/Signup" element={<SignUp />}></Route>
        <Route path="/SignupAdministration" element={<SignupAdministration />}></Route>
        <Route path="/AdminDashbord" element={<AdminDashbord />}></Route>
+       <Route path="/Pdf" element={<Pdf />}></Route>
+       <Route path="/Contactez_nous" element={<Contactez_nous />}></Route>
+
+       <Route path="/Satisfaction" element={<Satisfaction />}></Route>
 
       
 

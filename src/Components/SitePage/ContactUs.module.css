@@ -1,0 +1,170 @@
+/* ContactUs.module.css ou ContactUs.css */
+
+.contactContainer {
+  font-family: 'Arial', sans-serif; /* Ou votre police préférée */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f8f8f8; /* Fond légèrement gris */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  color: #2c3e50; /* Couleur de titre foncée */
+  margin-bottom: 20px;
+  font-size: 2.8em;
+  font-weight: 700;
+}
+
+.introText {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne sur petits écrans */
+  gap: 40px; /* Espace entre les deux sections */
+  justify-content: center;
+  align-items: flex-start; /* Aligne les éléments en haut */
+}
+
+.formSection,
+.infoSection {
+  flex: 1; /* Prend la même largeur disponible */
+  min-width: 300px; /* Largeur minimale avant de passer à la ligne */
+  padding: 30px;
+  background-color: #ffffff; /* Fond blanc pour les sections */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  color: #3498db; /* Couleur vive pour les titres de section */
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  text-align: center;
+  border-bottom: 2px solid #ecf0f1; /* Ligne de séparation subtile */
+  padding-bottom: 10px;
+}
+
+/* Styles du formulaire */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #444;
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Important pour inclure le padding dans la largeur */
+}
+
+.inputField:focus,
+.textareaField:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.textareaField {
+  resize: vertical; /* Permet de redimensionner verticalement */
+  min-height: 100px;
+}
+
+.submitButton {
+  background-color: #3498db; /* Bouton bleu primaire */
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start; /* Aligne le bouton à gauche */
+}
+
+.submitButton:hover {
+  background-color: #2980b9; /* Bleu plus foncé au survol */
+  transform: translateY(-2px); /* Léger effet 3D */
+}
+
+/* Styles des informations de contact */
+.contactInfoItem {
+  margin-bottom: 15px;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #666;
+}
+
+.contactInfoItem strong {
+  color: #333;
+}
+
+.contactInfoItem a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactInfoItem a:hover {
+  text-decoration: underline;
+  color: #2980b9;
+}
+
+/* Styles de la carte Google Maps (optionnel) */
+.mapContainer {
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden; /* Assure que les bords de la carte sont arrondis */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column; /* Les colonnes passent à la ligne sur les petits écrans */
+  }
+
+  .formSection,
+  .infoSection {
+    min-width: unset; /* Annule la largeur minimale */
+    width: 100%; /* Prend toute la largeur disponible */
+  }
+
+  .contactContainer {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2.2em;
+  }
+
+  .sectionTitle {
+    font-size: 1.5em;
+  }
+}

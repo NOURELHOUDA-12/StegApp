@@ -48,6 +48,7 @@ const styles = {
         color: '#333',
         padding: '0 20px',
     },
+
     header: {
         backgroundColor: '#004481',
         color: '#fff',
@@ -60,8 +61,9 @@ const styles = {
     logo: {
         marginBottom: '10px',
     },
+    
     logoImageStyle: {
-        height: '60px', // Adjust the height as needed
+        height: '90px', // Adjust the height as needed
         // You can add more styles here to control the image size and appearance
     },
     nav: {

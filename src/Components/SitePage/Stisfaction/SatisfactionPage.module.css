@@ -1,0 +1,192 @@
+/* SatisfactionPage.module.css ou SatisfactionPage.css */
+
+.satisfactionContainer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police moderne */
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Ombre plus prononcée */
+  text-align: center;
+  color: #333;
+}
+
+.title {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.introText {
+  margin-bottom: 40px;
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+
+.satisfactionForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratingSection {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.ratingLabel {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.starsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espace entre les étoiles */
+  font-size: 3em; /* Grande taille pour les étoiles */
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.star {
+  color: #ccc; /* Couleur par défaut (vide) */
+  transition: color 0.3s ease, transform 0.2s ease;
+  user-select: none; /* Empêche la sélection de texte */
+}
+
+.star:hover {
+  color: #ffc107; /* Couleur jaune au survol */
+  transform: scale(1.1); /* Léger agrandissement au survol */
+}
+
+.filledStar {
+  color: #ffc107; /* Couleur jaune pour les étoiles remplies */
+}
+
+.currentRatingText {
+  font-size: 1em;
+  color: #555;
+  font-style: italic;
+}
+
+.commentSection {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: left; /* Alignement du texte à gauche pour la section commentaire */
+}
+
+.commentLabel {
+  display: block;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.commentField {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  min-height: 120px;
+  resize: vertical; /* Permet le redimensionnement vertical */
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.commentField:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.submitButton {
+  background-color: #3498db; /* Bleu primaire */
+  color: white;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-3px); /* Effet de levée */
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Message de remerciement après soumission */
+.thankYouMessage {
+  padding: 50px 20px;
+  background-color: #e8f5e9; /* Vert pâle pour le succès */
+  border: 1px solid #c8e6c9;
+  border-radius: 12px;
+  color: #2e7d32; /* Texte vert foncé */
+}
+
+.thankYouTitle {
+  font-size: 2.2em;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.thankYouText {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.resetButton {
+  background-color: #607d8b; /* Gris pour le bouton de réinitialisation */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #455a64;
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+  .satisfactionContainer {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .introText {
+    font-size: 1em;
+  }
+
+  .starsContainer {
+    font-size: 2.5em;
+    gap: 5px;
+  }
+
+  .submitButton {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+}
