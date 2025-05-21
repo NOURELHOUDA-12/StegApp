@@ -537,7 +537,7 @@ function Facture() {
                                     className="button-link"
                                     style={{ backgroundColor: '#007bff', color: 'black', border: 'none', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '1em', marginLeft: '10px', textDecoration: 'none' }}
                                 >
-                                    Afficher la Facture (PDF)
+                                    Afficher la Facture 
                                 </a>
                             
                             )}
