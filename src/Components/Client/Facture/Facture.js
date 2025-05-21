@@ -489,10 +489,7 @@ function Facture() {
         );
     };
 
-    // Cette fonction n'est plus nécessaire car le PDF s'ouvre dans une nouvelle fenêtre/onglet
-    // const renderPdfDisplay = () => {
-    //     return null;
-    // };
+   
 
     return (
         <div className="steg-interface">
@@ -522,7 +519,7 @@ function Facture() {
                     </div>
                 )}
 
-                {factureDetails && !showPayment && ( // Mis à jour pour ne pas dépendre de showPdf
+                {factureDetails && !showPayment && ( 
                     <div className="facture-details">
                         <h3>Détails de la Facture</h3>
                         <p>Référence: {factureDetails.reference}</p>
@@ -547,8 +544,7 @@ function Facture() {
 
                 {showPayment && factureDetails && renderPaymentInterface()}
 
-                {/* Plus besoin d'appeler renderPdfDisplay ici */}
-                {/* {showPdf && factureDetails && renderPdfDisplay()} */}
+                
             </div>
         </div>
     );
