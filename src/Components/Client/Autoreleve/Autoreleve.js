@@ -526,7 +526,7 @@ function STEGInterface() {
                 // --- LOGIQUE POUR DÉFINIR LE CHEMIN DU PDF ---
                 // Assurez-vous que ces chemins sont corrects par rapport à votre dossier 'public'
                 // ou que ce sont des URLs complètes si les PDFs sont hébergés ailleurs (ex: Firebase Storage)
-                if (referenceInput === "322583221") {
+                if (referenceInput === "331524521") {
                     setPdfPath("/assets/pdf/facture hamdi.pdf"); // Exemple : le fichier doit être dans public/assets/pdfs/
                 } else if (referenceInput === "336084740") {
                     setPdfPath("/assets/pdf/facture ameni.pdf"); // Exemple : le fichier doit être dans public/assets/pdfs/
